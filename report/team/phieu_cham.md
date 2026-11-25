@@ -3,7 +3,7 @@
 Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo bằng chứng trong hồ sơ, không theo cách trình bày: một đề xuất No-go có lý do bằng số được điểm cao hơn một đề xuất Go bỏ qua con số bất lợi.
 
 - Nhóm chấm (hội đồng): SoloLeveling (Lê Thanh Hà)
-- Nhóm được chấm: NhomT2 (repo `hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics`; đã đọc `ho_so_launch_v0.md` và `pilot_plan.yaml`)
+- Nhóm được chấm: NhomT2 (repo `hieulhaiwork/K5-L3B-DAY13-NhomT2-LaunchEconomics`; đã đọc toàn bộ `report/team/` (ho_so_launch_v0, pilot_plan, bang_chi_phi, bang_loi, chi_so, group_report), `TEAM.md` và `src/lab13.py`; các số chính (4.472 đ, 16,3x, 5.865 đ, 4.599 đ, 11.743 và 12.415 đ, 1.251 / 3.103 / 859, hệ số thiết kế 6,96, power 0,64, 82,83% · 27,12% · 4,25%) khớp kết quả chạy `lab13.py` của hội đồng trên cùng dữ liệu)
 
 | Tiêu chí | 0 điểm | 5 điểm | 10 điểm | Điểm | Lý do (có số) |
 | --- | --- | --- | --- | ---: | --- |
@@ -14,7 +14,7 @@ Nhóm số n chấm nhóm số n + 1; nhóm cuối chấm nhóm 1. Chấm theo b
 
 **Quyết định của hội đồng:** Go có điều kiện
 
-**Lý do:** Đề xuất của nhóm khớp bằng chứng và nêu cả con số bất lợi (power 0,64; xem lại 100% = 1,03x, simulated). Pilot tách được tác động (đối chứng đồng thời, ngẫu nhiên, 20 cụm mỗi nhóm) và có luật dừng đo được. Hội đồng đồng ý Go có điều kiện cho phạm vi noi_dia + hang_nang, với điều kiện cả 3 điều kiện của nhóm hoàn tất trước 2026-12-07. Điểm cần làm rõ: nhãn simulated cho ngưỡng 4,8 phút/lần, và mục 6 ghi "Xong, có bằng chứng" dù luật dừng chi phí 8.000 đ dựa trên số simulated.
+**Lý do:** Đề xuất của nhóm khớp bằng chứng và nêu cả con số bất lợi (power 0,64; xem lại 100% = 1,03x, simulated). Các file nhất quán với nhau (đồng thuận 18/20 ở mục 5 khớp `bang_loi.md`; ngày 2026-12-07 và 2027-01-15 khớp `pilot_plan.yaml`; 10 event có `trace_id` khớp `chi_so.md`). Pilot tách được tác động (đối chứng đồng thời, ngẫu nhiên, 20 cụm mỗi nhóm) và có luật dừng đo được. Hội đồng đồng ý Go có điều kiện cho phạm vi noi_dia + hang_nang, với điều kiện cả 3 điều kiện của nhóm hoàn tất trước 2026-12-07. Điểm cần làm rõ: nhãn simulated cho ngưỡng 4,8 phút/lần, và mục 6 ghi "Xong, có bằng chứng" dù luật dừng chi phí 8.000 đ dựa trên số simulated.
 
 **Một câu hỏi cho đội trình:** Nếu tác động thật chỉ là 5 điểm và kết quả pilot không đạt ý nghĩa thống kê ở mức chênh 6 điểm (power 0,64), Giám đốc vận hành sẽ quyết định mở rộng hay dừng, theo luật nào viết trước, và chi phí 8.000 đ (mức hiện tại 3.414 đ trong phạm vi, simulated) có được xét cùng lúc không
 
