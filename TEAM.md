@@ -5,7 +5,7 @@
 - Tên nhóm: SoloLeveling (làm một mình)
 - Lớp: L3B
 - Repo nhóm: `K5-L3B-DAY13-SoloLeveling-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt: https://github.com/thanhhale288/K5-L3B-DAY13-SoloLeveling-LaunchEconomics · main · (điền sau khi push)
+- URL repo, nhánh nộp, commit chốt: https://github.com/thanhhale288/K5-L3B-DAY13-SoloLeveling-LaunchEconomics · main · 7b2b67a
 
 ## Thành viên
 
