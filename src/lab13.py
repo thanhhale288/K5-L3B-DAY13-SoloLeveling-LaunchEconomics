@@ -154,6 +154,36 @@ if __name__ == '__main__':
         hoa_von = (BASELINE * tc_pv - token_tool - n_lam_lai * phut_lam_lai * LUONG_PHUT) / (co_ok * LUONG_PHUT)
         print(f'lam lai {phut_lam_lai:5.1f} phut/ca: yc_xem_lai={co_ok} lam_lai={n_lam_lai} token+tool={token_tool:,.0f} '
               f'tong={tong:,.0f} cps={tong / tc_pv:,.0f} = {tong / tc_pv / BASELINE:.2f}x  hoa_von_xem_lai<={hoa_von:.1f} phut')
-    # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
-    #   from statsmodels.stats.proportion import proportion_effectsize
-    #   from statsmodels.stats.power import NormalIndPower
+    # ---------- D1 · Cỡ mẫu (baseline 0,70; +5 điểm; alpha 0,05; power 0,8; ICC 0,02) ----------
+    from statistics import NormalDist
+    from statsmodels.stats.proportion import proportion_effectsize
+    from statsmodels.stats.power import NormalIndPower
+
+    def co_mau(p1, p2, alpha=0.05, power=0.8):
+        za, zb = NormalDist().inv_cdf(1 - alpha / 2), NormalDist().inv_cdf(power)
+        pb = (p1 + p2) / 2
+        return math.ceil((za * math.sqrt(2 * pb * (1 - pb))
+                          + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2)
+
+    ICC = 0.02
+    print('\n--- D1 ---')
+    n_a = co_mau(0.70, 0.75)
+    print(f'a) chia theo yeu cau: {n_a} yeu cau moi nhom')
+    m = 75
+    de_b = 1 + (m - 1) * ICC
+    n_b = math.ceil(n_a * de_b)
+    print(f'b) m={m}: DE={de_b:.2f}, n={n_b} moi nhom -> {math.ceil(n_b / m)} nhan vien moi nhom, tong {2 * math.ceil(n_b / m)} (co 40)')
+    print(f'c) 20 nhan vien moi nhom: hieu dung toi da < {20 / ICC:.0f} (can {n_a}) -> {"dat" if 20 / ICC >= n_a else "KHONG dat"}')
+    print(f'd) 6 depot moi nhom: hieu dung toi da < {6 / ICC:.0f}')
+    n6 = co_mau(0.70, 0.76)
+    m_e = math.ceil(n6 * (1 - ICC) / (20 - n6 * ICC))
+    print(f'e) chenh 6 diem: {n6} moi nhom; 20 nguoi/nhom -> m >= {m_e} yeu cau moi nguoi (DE={1 + (m_e - 1) * ICC:.2f})')
+    es = proportion_effectsize(0.75, 0.70)
+    print(f'power neu tac dong that chi 5 diem, n=859/nhom: {NormalIndPower().solve_power(es, nobs1=859, alpha=0.05, ratio=1):.2f}')
+    print(f'power neu tac dong 6 diem, n=859/nhom: {NormalIndPower().solve_power(proportion_effectsize(0.76, 0.70), nobs1=859, alpha=0.05, ratio=1):.2f}')
+
+    # ---------- D3 · Tỉ lệ mở lại hiện tại (trước khi đặt ngưỡng an toàn) ----------
+    pv = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    print(f"\nmo_lai_trong_7_ngay: toan mau {reqs['mo_lai_trong_7_ngay'].mean():.2%} ({reqs['mo_lai_trong_7_ngay'].sum()}/{len(reqs)}), "
+          f"pham vi noi_dia+hang_nang {pv['mo_lai_trong_7_ngay'].mean():.2%} ({pv['mo_lai_trong_7_ngay'].sum()}/{len(pv)})")
+    print(f"ti le lam_lai trong pham vi: {(pv['ket_qua'] == 'lam_lai').mean():.2%}; nhan vien={reqs['staff_id'].nunique()}, depot={reqs['depot'].nunique()}")
