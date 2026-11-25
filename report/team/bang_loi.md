@@ -43,8 +43,8 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
-| ... | Do người dùng | ... | ... | ... |
-| ... | Hệ thống | ... | ... | ... |
-| ... | Ngữ cảnh | ... | ... | ... |
-| ... | Giới hạn hệ thống | ... | ... | ... |
-| ... | Ngầm | ... | ... | ... |
+| 6 | Do người dùng | Event `input_validation_failed` hoặc `request_category_mismatch` (mục khách chọn khác nội dung mô tả), cảnh báo khi vượt 3% số yêu cầu mỗi ngày | Khi mô tả lệch mục đã chọn, trợ lý hỏi lại "Bạn muốn hoàn phí giao trễ hay báo hàng hỏng?" và chuyển đúng luồng, thay vì từ chối ngay | PM trợ lý hoàn phí |
+| 7 | Hệ thống | Đối soát mỗi giờ: tin nhắn "đã hoàn" mà không có bản ghi `refund_ledger_write` ok cùng `trace_id`; ngưỡng 0 ca | Chỉ báo "đã hoàn" khi sổ cái trả ok; sau 3 lần thử lỗi 503 thì báo "đang xử lý" và chuyển nhân viên qua `handoff_to_staff` | Kỹ sư trưởng agent |
+| 10 | Ngữ cảnh | Tỉ lệ yêu cầu bị từ chối do bất khả kháng rồi mở lại trong 7 ngày (`ticket_reopened`), theo tuần; cảnh báo khi vượt 10% | Khi từ chối vì bất khả kháng, tin nhắn nêu rõ lý do (bão) và ứng dụng ẩn hoặc đổi dòng "cam kết giao 24 giờ" cho đơn bị ảnh hưởng | Trưởng nhóm CSKH |
+| 11 | Giới hạn hệ thống | Event `handoff_to_staff` với `reason = dau_vao_khong_ho_tro` (âm thanh, ảnh), theo ngày; theo dõi khi vượt 2% số yêu cầu | Giữ cách trả lời rõ ràng "vui lòng nhập bằng chữ" kèm nút gọi nhân viên; nếu tỉ lệ vượt ngưỡng thì cân nhắc thêm bước chuyển giọng nói thành văn bản | PM trợ lý hoàn phí |
+| 8 | Ngầm | Kiểm tra mẫu 100 câu trả lời mỗi tuần: đối chiếu mọi điều khoản được trích với bản chính sách hiện hành; ngưỡng 1% trích dẫn không tồn tại | Chỉ cho trợ lý trích điều khoản có trong danh sách điều khoản hợp lệ; ghi `policy_version` vào `trace_id` để truy ngược | Trưởng nhóm chính sách |
