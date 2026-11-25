@@ -5,7 +5,7 @@
 # D1 · Cỡ mẫu (baseline 0,70; mục tiêu +5 điểm; alpha 0,05; power 0,8; ICC 0,02) · tính bằng src/lab13.py
 #   a) Chia theo yêu cầu: 1.251 yêu cầu mỗi nhóm (hệ số thiết kế 1)
 #   b) Theo nhân viên, m = 75: hệ số thiết kế 1 + 74 x 0,02 = 2,48; cỡ mẫu 1.251 x 2,48 = 3.103 mỗi nhóm = 42 nhân viên mỗi nhóm, tổng 84 > 40 nhân viên hiện có: không đủ người
-#   c) 20 nhân viên mỗi nhóm: cỡ mẫu hiệu dụng tối đa 20 / 0,02 = 1.000 (luôn nhỏ hơn 1.000) < 1.251: không đạt mức chênh 5 điểm
+#   c) 20 nhân viên mỗi nhóm: cỡ mẫu hiệu dụng tối đa 20 / 0,02 = 1.000 (không bao giờ đạt tới 1.000) < 1.251: không đạt mức chênh 5 điểm
 #   d) 6 depot mỗi nhóm: cỡ mẫu hiệu dụng tối đa 6 / 0,02 = 300; chỉ 6 cụm mỗi nhóm, dưới 20
 #   e) Mức chênh 6 điểm (859 mỗi nhóm), 20 nhân viên mỗi nhóm: mỗi nhân viên cần xử lý ít nhất m = 299 yêu cầu (hệ số thiết kế 1 + 298 x 0,02 = 6,96)
 #   Hệ quả: nếu tác động thật chỉ là 5 điểm mà ta thiết kế cho 6 điểm (859 mỗi nhóm) thì power chỉ còn 0,64 (statsmodels NormalIndPower); nếu tác động thật là 6 điểm thì power 0,80.
@@ -43,7 +43,7 @@ pilot:
     spillover_risk: "Có thể chia sẻ câu trả lời trong cùng depot; giảm bằng quyền truy cập theo tài khoản và log lượt mở trợ lý theo staff_id"
     predeclared: "Có: chỉ số chính, mde 0,06, luật dừng và ngày quyết định chốt trước ngày bắt đầu; bốc thăm ngẫu nhiên bằng code, seed ghi trước, phân tầng theo depot"
   stop_rules:
-    - "NẾU tỉ lệ mở lại trong 7 ngày của nhóm dùng trợ lý cao hơn nhóm đối chứng từ 2 điểm phần trăm trở lên, hoặc vượt 6% tuyệt đối, hoặc có ít nhất 1 ca hoàn trùng TRONG 3 ngày liên tiếp THÌ Giám đốc vận hành tắt trợ lý trong 30 phút và Kỹ sư trưởng agent rà 20 trace gần nhất KHÔNG THÌ không được sang bước rollout tiếp theo"
+    - "NẾU tỉ lệ mở lại trong 7 ngày của nhóm dùng trợ lý cao hơn nhóm đối chứng từ 2 điểm phần trăm trở lên, hoặc vượt 6% tuyệt đối, hoặc có ít nhất 1 ca hoàn trùng, TRONG 3 ngày liên tiếp (mỗi điều kiện tính riêng) THÌ Giám đốc vận hành tắt trợ lý trong 30 phút và Kỹ sư trưởng agent rà 20 trace gần nhất KHÔNG THÌ không được sang bước rollout tiếp theo"
     - "NẾU chi phí mỗi việc thành công vượt 8.000 đ (simulated; mức hiện tại 4.472 đ) TRONG 2 tuần liên tiếp THÌ PM trợ lý hoàn phí thu hẹp pilot về noi_dia và giới hạn tối đa 2 lần chạy KHÔNG THÌ không được mở thêm hang_nang"
     - "NẾU tỉ lệ bỏ qua gợi ý (sua hoặc bo) vượt 40% (mức hiện tại 27,1%) TRONG 1 tuần THÌ Trưởng nhóm CSKH phỏng vấn 5 nhân viên trong 3 ngày KHÔNG THÌ không được chuyển bước rollout"
   interim_looks: "chỉ kiểm tra chỉ số an toàn"
