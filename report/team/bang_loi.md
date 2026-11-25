@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: subagent AI số 1 · Người gắn nhãn 2: subagent AI số 2 (hai subagent mới, context riêng, chạy song song, không thấy nhau, không đọc file nào trong repo, chỉ nhận định nghĩa 5 loại và mô tả 20 ca). Cách làm này được học viên cho biết là đã được giảng viên cho phép; mọi nhãn do subagent tạo, không do học viên hay trợ lý chính chỉnh sửa.
+Người gắn nhãn 1: Lê Thanh Hà · Người gắn nhãn 2: Lã Quốc Nghị (bạn cùng lớp, thuộc nhóm khác, gắn riêng một bộ nhãn độc lập cho bài này). Theo lời hai người, cả hai gắn riêng, không trao đổi, và chưa xem hay tham khảo nhãn của AI trước khi gắn. Đối chiếu thêm: hai subagent AI (context riêng, được giảng viên cho phép theo lời học viên) cũng gắn độc lập và trùng 20/20 với bộ nhãn dưới đây.
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
@@ -35,7 +35,7 @@ Người gắn nhãn 1: subagent AI số 1 · Người gắn nhãn 2: subagent A
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
 
-- Không có ca nào không trùng nên không cần thêm quy tắc phân biệt. Lưu ý: hai bộ nhãn đều do cùng một loại mô hình tạo từ cùng một đề, nên mức "độc lập" thấp hơn hai người thật; đồng thuận 100% phản ánh điều đó.
+- Không có ca nào không trùng nên không cần thêm quy tắc phân biệt. Hai bộ nhãn do hai người gắn riêng và trùng hoàn toàn; bộ đối chiếu của hai subagent AI cũng trùng, nên không cần viết lại định nghĩa. Nhóm chưa kiểm được mức độc lập ngoài lời khai của hai người gắn nhãn.
 
 ## Bảng khắc phục cho 5 ca, mỗi loại một ca
 
