@@ -47,6 +47,8 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 - Chi phí cố định có đổi kết luận không? Không: 4.599 đ (0,38×) ở 45.000 yêu cầu/tháng và 5.784 đ (0,48×) ở một nửa khối lượng, đều dưới 12.000 đ (simulated). Cố định tăng gấp đôi khi khối lượng giảm một nửa (1.185 → 2.370 đ/việc), nên hồ sơ phải ghi rõ số đã cộng cố định ở khối lượng nào. Chi phí trước khi cộng cố định của phạm vi là 3.414 đ/việc.
 
+- So với nhân viên tự làm trên toàn mẫu (cộng cả 222 yêu cầu không thành công do nhân viên làm thay): (4.373.585 + 222 × 12.000) ÷ 1.200 = 5.865 đ mỗi yêu cầu = 0,49× của 12.000 đ (simulated). Số 4.472 đ ở A2 chưa tính phần này.
+
 ## B1 · Đổi từng yếu tố
 
 | Kịch bản | Cách tính | Chi phí mỗi việc thành công | Thay đổi (%) |

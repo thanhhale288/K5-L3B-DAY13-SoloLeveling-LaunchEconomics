@@ -37,16 +37,17 @@ Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Sao chép mục dưới đây cho từng thành viên.
 
-## HoVaTen-MSSV
+## LeThanhHa-2A202603901
 
 ### Phần việc phụ trách
 
--
+- Làm một mình, kiêm cả 4 vai; toàn bộ nhiệm vụ A–E.
 
 ### Đóng góp cụ thể
 
--
+- `src/lab13.py` (A1, A2, A3, A4, B, D1, E1) và sáu file hồ sơ trong `report/team/`, `group_report.md`, báo cáo cá nhân.
+- Gắn bộ nhãn 1 cho 20 ca lỗi; bộ nhãn 2 do Lã Quốc Nghị (bạn cùng lớp, nhóm khác) gắn độc lập.
 
 ### Bằng chứng
 
--
+- Lịch sử commit của repo; `python lab13.py` in ba phép thử ĐẠT.
