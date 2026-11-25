@@ -83,7 +83,31 @@ if __name__ == '__main__':
     print(f"cps / hoa_don_moi_yc = {ket_qua['cps'] / ket_qua['hoa_don_moi_yc']:.1f} lần")
     for khoan in ('token', 'tool', 'xem_lai', 'lam_lai'):
         print(f"ti trong {khoan:8s} {ket_qua[khoan] / ket_qua['tong']:.1%}")
-    # TODO CP1 · Nhiệm vụ A3: tính lại theo từng giá trị của cột loai.
+    # ---------- A3 · Tách theo loại yêu cầu (cps: simulated) ----------
+    print('\n--- A3 (cps: simulated) ---')
+    print(f"{'loai':10s} {'so_yc':>6s} {'ti_le_tc':>9s} {'lan_chay/yc':>11s} {'cps':>9s} {'so_voi_12k':>10s}")
+    for loai in ['noi_dia', 'hang_nang', 'quoc_te', 'doi_tac']:
+        r = reqs[reqs['loai'] == loai]
+        kq = mo_hinh(runs, r)
+        so_lan = runs[runs['request_id'].isin(r['request_id'])].shape[0] / len(r)
+        print(f"{loai:10s} {len(r):6d} {kq['thanh_cong'] / len(r):9.1%} {so_lan:11.2f} {kq['cps']:9,.0f} {kq['cps'] / BASELINE:9.2f}x")
+    # Tỉ lệ ok theo từng lần thử × loại: chạy lại có giúp không?
+    m = runs.merge(reqs[['request_id', 'loai']], on='request_id')
+    m['ok'] = (m['status'] == 'ok').astype(int)
+    print('\nTi le ok theo attempt:')
+    print(m.pivot_table(index='loai', columns='attempt', values='ok', aggfunc='mean').round(3))
+
+    # ---------- A4 · Chi phí cố định, phạm vi noi_dia + hang_nang (simulated) ----------
+    print('\n--- A4 (simulated) ---')
+    pv = reqs[reqs['loai'].isin(['noi_dia', 'hang_nang'])]
+    kq_pv = mo_hinh(runs, pv)
+    ti_le_pv = kq_pv['thanh_cong'] / len(reqs)  # số việc thành công của phạm vi / 1.200 yêu cầu mẫu
+    for ten, yc_thang in [('45.000 yeu cau/thang', 45000), ('Mot nua khoi luong', 22500)]:
+        tc_thang = yc_thang * ti_le_pv
+        cd = 40_000_000 / tc_thang
+        tong = kq_pv['cps'] + cd
+        print(f'{ten:22s} tc/thang={tc_thang:9,.0f}  co dinh/viec={cd:7,.0f}  cps+cd={tong:7,.0f}  = {tong / BASELINE:.2f}x')
+    print(f"cps trong pham vi (chua co dinh) = {kq_pv['cps']:,.0f}")
     # TODO CP2 · Nhiệm vụ B: đổi từng yếu tố, ghi vào bảng độ nhạy.
     # TODO CP4 · Nhiệm vụ D: cỡ mẫu.
     #   from statsmodels.stats.proportion import proportion_effectsize

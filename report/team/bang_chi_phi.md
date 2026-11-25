@@ -31,21 +31,21 @@ Số tính bằng `src/lab13.py`. Mọi con số tính từ cột `_simulated` g
 
 | Loại | Số yêu cầu | Tỉ lệ thành công | Số lần chạy mỗi yêu cầu | Chi phí mỗi việc thành công | So với 12.000 đ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| noi_dia | ... | ... | ... | ... | ... |
-| hang_nang | ... | ... | ... | ... | ... |
-| quoc_te | ... | ... | ... | ... | ... |
-| doi_tac | ... | ... | ... | ... | ... |
+| noi_dia | 824 | 95,0% | 1,11 | 2.696 đ (simulated) | 0,22× |
+| hang_nang | 158 | 74,1% | 1,47 | 8.221 đ (simulated) | 0,69× |
+| quoc_te | 150 | 27,3% | 2,32 | 22.515 đ (simulated) | 1,88× |
+| doi_tac | 68 | 54,4% | 1,88 | 10.215 đ (simulated) | 0,85× |
 
-- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? ...
+- Loại nào không đáng để trợ lý xử lý? Với loại đó, cho chạy lại tới 3 lần có giúp không? **quoc_te** (1,88× của 12.000 đ, thành công chỉ 27,3%, simulated) không đáng; tỉ lệ ok theo lần chạy là 30,0% → 11,4% → 2,2%, nên chạy lại chỉ tốn thêm tiền. doi_tac (0,85×, có điều khoản riêng, lần chạy 51,5% → 18,2% → 14,8%) sát ngưỡng nên cũng nên loại khỏi phạm vi pilot.
 
 ## A4 · Chi phí cố định (phạm vi noi_dia + hang_nang)
 
 | Khối lượng | Việc thành công mỗi tháng | Chi phí cố định mỗi việc | Chi phí mỗi việc thành công + cố định | So với 12.000 đ |
 | --- | ---: | ---: | ---: | ---: |
-| 45.000 yêu cầu/tháng | ... | ... | ... | ... |
-| Một nửa khối lượng | ... | ... | ... | ... |
+| 45.000 yêu cầu/tháng | 33.750 | 1.185 đ | 4.599 đ (simulated) | 0,38× |
+| Một nửa khối lượng | 16.875 | 2.370 đ | 5.784 đ (simulated) | 0,48× |
 
-- Chi phí cố định có đổi kết luận không? Ở khối lượng nào? ...
+- Chi phí cố định có đổi kết luận không? Không: 4.599 đ (0,38×) ở 45.000 yêu cầu/tháng và 5.784 đ (0,48×) ở một nửa khối lượng, đều dưới 12.000 đ (simulated). Cố định tăng gấp đôi khi khối lượng giảm một nửa (1.185 → 2.370 đ/việc), nên hồ sơ phải ghi rõ số đã cộng cố định ở khối lượng nào. Chi phí trước khi cộng cố định của phạm vi là 3.414 đ/việc.
 
 ## B1 · Đổi từng yếu tố
 
