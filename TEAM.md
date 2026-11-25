@@ -2,16 +2,16 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
-- Lớp: L3A hoặc L3B
+- Tên nhóm: SoloLeveling (làm một mình)
+- Lớp: L3B
 - Repo nhóm: `K5-L3A-DAY13-TenNhom-LaunchEconomics` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- URL repo, nhánh nộp, commit chốt: https://github.com/thanhhale288/K5-L3B-DAY13-SoloLeveling-LaunchEconomics · main · (điền sau khi push)
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
+|   1 | Lê Thanh Hà | 2A202603901 | haroman2808@gmail.com | thanhhale288 | Làm một mình, kiêm cả 4 vai (người viết code, người kiểm số, người gắn nhãn 1, người gắn nhãn 2 kiêm giữ hồ sơ) |
 |   2 |        |      |       |        |         |
 |   3 |        |      |       |        |         |
 |   4 |        |      |       |        |         |
