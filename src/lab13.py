@@ -187,3 +187,13 @@ if __name__ == '__main__':
     print(f"\nmo_lai_trong_7_ngay: toan mau {reqs['mo_lai_trong_7_ngay'].mean():.2%} ({reqs['mo_lai_trong_7_ngay'].sum()}/{len(reqs)}), "
           f"pham vi noi_dia+hang_nang {pv['mo_lai_trong_7_ngay'].mean():.2%} ({pv['mo_lai_trong_7_ngay'].sum()}/{len(pv)})")
     print(f"ti le lam_lai trong pham vi: {(pv['ket_qua'] == 'lam_lai').mean():.2%}; nhan vien={reqs['staff_id'].nunique()}, depot={reqs['depot'].nunique()}")
+
+    # ---------- E1 · Ba chỉ số tính thử trên 1.200 yêu cầu (đợt chạy thử, chưa có đối chứng) ----------
+    chinh = ((reqs.dong_trong_24h == 1) & (reqs.mo_lai_trong_7_ngay == 0)).mean()
+    xem = reqs[reqs.duoc_xem_lai == 1]
+    bo_qua = xem.quyet_dinh_xem_lai.isin(['sua', 'bo']).mean()
+    an_toan = (reqs.mo_lai_trong_7_ngay == 1).mean()
+    print('\n--- E1 ---')
+    print(f'chinh   (dong 24h va khong mo lai 7 ngay): {chinh:.2%} ({int(chinh * len(reqs))}/{len(reqs)})')
+    print(f"dung    (bo qua goi y):                   {bo_qua:.2%} ({int(xem.quyet_dinh_xem_lai.isin(['sua', 'bo']).sum())}/{len(xem)})")
+    print(f'an toan (mo lai trong 7 ngay):            {an_toan:.2%} ({int(reqs.mo_lai_trong_7_ngay.sum())}/{len(reqs)})')
